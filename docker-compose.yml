@@ -1,0 +1,14 @@
+version: '3'
+services:
+  docker-a:
+    image: docker-a:latest
+    ports:
+      - "3000:3000"
+    links:
+      - docker-b:docker-b
+    volumes:
+      - "/www:/usr/local/nginx/html"
+  docker-b:
+    image: docker-b:latest
+    volumes:
+      - "/www:/usr/local/nginx/html"
