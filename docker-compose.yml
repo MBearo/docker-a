@@ -4,13 +4,11 @@ services:
     image: docker-a:latest
     ports:
       - "3000:3000"
-    links:
-      - docker-b:docker-b
     volumes:
       - "../public:/public"
   docker-b:
     image: docker-b:latest
-    ports:
-      - "3001:3001"
+    links:
+      - docker-a
     volumes:
       - "../public:/public"
