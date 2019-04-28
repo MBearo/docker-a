@@ -10,5 +10,7 @@ services:
       - "../public:/public"
   docker-b:
     image: docker-b:latest
+    expose: 
+      - "3001"
     volumes:
       - "../public:/public"
