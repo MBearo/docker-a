@@ -7,8 +7,8 @@ services:
     links:
       - docker-b:docker-b
     volumes:
-      - "/www:/usr/local/nginx/html"
+      - "../public:/public"
   docker-b:
     image: docker-b:latest
     volumes:
-      - "/www:/usr/local/nginx/html"
+      - "../public:/public"
