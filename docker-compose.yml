@@ -5,8 +5,6 @@ services:
     ports:
       - "3000:3000"
       - "3001:3001"
-    links:
-      - docker-b
     volumes:
       - "../public:/public"
   docker-b:
