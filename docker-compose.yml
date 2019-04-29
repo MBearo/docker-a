@@ -2,12 +2,18 @@ version: '3'
 services:
   docker-a:
     image: docker-a:latest
+    name: docker-a
     ports:
       - "3000:3000"
+      - "3001:3001"
+    links:
+      - docker-b
     volumes:
       - "../public:/public"
   docker-b:
     image: docker-b:latest
+    name: docker-b
+    ports: "3001:3001"
     links:
       - docker-a
     volumes:
