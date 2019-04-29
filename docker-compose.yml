@@ -8,14 +8,14 @@ services:
       my-net:
         ipv4_address: 172.22.0.9
     volumes:
-      - "../public:/public"
+      - "../public:/app/public"
   docker-b:
     image: docker-b:latest
     networks: 
       my-net:
         ipv4_address: 172.22.0.10
     volumes:
-      - "../public:/public"
+      - "../public:/app/public"
 networks:
   my-net:
     ipam: 
