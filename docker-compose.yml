@@ -4,14 +4,21 @@ services:
     image: docker-a:latest
     ports:
       - "3000:3000"
-      - "3001:3001"
+    networks: 
+      my-net:
+        ipv4_address: 172.22.0.9
     volumes:
       - "../public:/public"
   docker-b:
     image: docker-b:latest
-    ports:
-      - "3001:3001"
-    links:
-      - docker-a
+    networks: 
+      my-net:
+        ipv4_address: 172.22.0.10
     volumes:
       - "../public:/public"
+networks:
+  my-net:
+    ipam: 
+      driver: default
+      config: 
+        - subnet: "172.22.0.0/24"
